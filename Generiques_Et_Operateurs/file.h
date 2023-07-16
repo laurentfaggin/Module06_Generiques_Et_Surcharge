@@ -6,16 +6,10 @@
 template <class TypeElement>
 class File {
 public:
-	File();
-	~File();
-	void enfiler(TypeElement p_element);
-	int defiler();
-	int tete();
-	bool estFileVide();
-	int taille();
-
-
-void enfiler(Typeelement p_element) {
+	File() {};
+	~File() {};
+	
+void enfiler(TypeElement p_element) {
 	this->m_liste.ajouter(p_element);
 	++this->m_nombreDElements;
 	for (size_t i = this->m_nombreDElements - 1; i > 0; --i) {
@@ -23,11 +17,14 @@ void enfiler(Typeelement p_element) {
 		this->m_liste.definir(i, valeurTemporaire);
 	}
 	this->m_liste.definir(0, p_element);
+	this->m_liste.afficher();
 }
 
 TypeElement defiler() {
+	TypeElement valeur = this->m_liste.obtenir(this->m_nombreDElements - 1);
 	this->m_liste.supprimer(this->m_nombreDElements - 1);
 	--this->m_nombreDElements;
+	return valeur;
 }
 
 TypeElement tete() {

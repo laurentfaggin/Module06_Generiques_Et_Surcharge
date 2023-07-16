@@ -2,15 +2,70 @@
 #include <iostream>
 #include "liste.h"
 #include "operateur.h"
+#include "pile.h"
+#include "file.h"
 
 void liste();
+void pile();
+void file();
 
 int main()
 {
-    liste();
+    std::cout << "********************   LISTE   *********************" << std::endl;
+    //liste();
+
+    std::cout << "********************   PILE   *********************" << std::endl;
+    pile();
+
+    std::cout << "********************   FILE   *********************" << std::endl;
+    file();
+}
+
+void pile() {
+    Pile<int> pile;
+    std::cout << "pile.empiler(1)" << std::endl;
+    pile.empiler(1);
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "pile.empiler(2)" << std::endl;
+    pile.empiler(2);
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "pile.empiler(3)" << std::endl;
+    pile.empiler(3);
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
+    std::cout <<std::endl;
+
+    std::cout << "pile.depiler()" << std::endl;
+    int valeurDepilee = pile.depiler();
+    std::cout << "valeur depile = " << valeurDepilee << std::endl;
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
+    std::cout << std::endl;
+
+}
+
+void file() {
+    File<int> file;
+
+    std::cout << "pile.enfiler(1)" << std::endl;
+    file.enfiler(1);
+    std::cout << "Taille de la file : " << file.taille() << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "pile.enfiler(2)" << std::endl;
+    file.enfiler(2);
+    std::cout << "Taille de la file : " << file.taille() << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "pile.enfiler(3)" << std::endl;
+    file.enfiler(3);
+    std::cout << "Taille de la file : " << file.taille() << std::endl;
 }
 
 void liste() {
+
     Liste <int> liste;
     for (int i = 1; i < 6; i++) {
         liste.ajouter(i);
