@@ -127,9 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="file.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="collection.h" />
@@ -137,6 +135,7 @@
     <ClInclude Include="liste.h" />
     <ClInclude Include="operateur.h" />
     <ClInclude Include="pile.h" />
+    <ClInclude Include="Pile_Operateurs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

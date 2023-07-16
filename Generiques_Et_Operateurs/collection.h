@@ -9,5 +9,4 @@ public:
 	virtual void supprimer(int p_index) = 0;
 	virtual TypeElement obtenir(int p_index) = 0;
 	virtual void definir(int p_index, TypeElement& p_element) = 0;
-
 };
