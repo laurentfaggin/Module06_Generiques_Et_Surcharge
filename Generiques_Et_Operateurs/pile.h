@@ -2,12 +2,16 @@
 #include <stdexcept>
 #include <iostream>
 #include "liste.h"
+#include <stdexcept>
 
 class Pile_Operateurs;
 template <class TypeElement>
 class Pile {
 public:
-	Pile() {};
+	Pile():
+		m_nombreDElements(0) 
+	{
+	};
 
 	Pile(int p_capacite) :
 		m_nombreDElements(0),
@@ -15,6 +19,7 @@ public:
 	{
 		;
 	};
+
 	~Pile() {
 		for (int i = 0; i < this->m_nombreDElements / 2; ++i) {
 			TypeElement valeurTemporaire = this->m_liste.obtenir(i);
@@ -31,9 +36,14 @@ public:
 	};
 
 	TypeElement depiler() {
-		int valeur = this->m_liste.obtenir(this->m_nombreDElements - 1);
-		this->m_liste.supprimer(this->m_nombreDElements - 1);
-		--this->m_nombreDElements;
+		if (this->m_nombreDElements > 0) {
+			--this->m_nombreDElements;
+			int valeur = this->m_liste.obtenir(this->m_nombreDElements);
+			this->m_liste.supprimer(this->m_nombreDElements - 1);
+		}
+		else {
+			throw std::invalid_argument("La liste est vide", nameof(m_liste));
+		}
 		return valeur;
 
 	};
