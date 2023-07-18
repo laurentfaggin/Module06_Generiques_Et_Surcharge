@@ -1,2 +1,3 @@
-﻿  main.cpp
-  Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe
+﻿main.obj : error LNK2019: unresolved external symbol "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<<int>(class std::basic_ostream<char,struct std::char_traits<char> > &,class File<int> const &)" (??$?6H@@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV01@AEBV?$File@H@@@Z) referenced in function "void __cdecl file(void)" (?file@@YAXXZ)
+main.obj : error LNK2019: unresolved external symbol "class File<int> __cdecl operator~<int>(class File<int> const &)" (??$?SH@@YA?AV?$File@H@@AEBV0@@Z) referenced in function "void __cdecl file(void)" (?file@@YAXXZ)
+C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe : fatal error LNK1120: 2 unresolved externals

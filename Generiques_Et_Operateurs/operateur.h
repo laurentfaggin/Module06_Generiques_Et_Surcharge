@@ -48,7 +48,7 @@ Liste<TypeElement>& operator+=(Liste<TypeElement>& p_liste1, const Liste<TypeEle
 }
 
 template<class TypeElement>
-Liste<TypeElement>& operator==(const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2) {
+bool operator==(const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2) {
     bool listeIdentique = p_liste1.nombreDElement() == p_liste2.nombreDElement();
     for (size_t i = 0; i < p_liste1.nombreDElement() && listeIdentique; ++i) {
         listeIdentique = p_liste1.obtenir() == p_liste2.obtenir();
@@ -57,12 +57,24 @@ Liste<TypeElement>& operator==(const Liste<TypeElement>& p_liste1, const Liste<T
 }
 
 template<class TypeElement>
-Liste<TypeElement>& operator!=(const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2) {
+bool operator!=(const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2) {
     bool listeDifferente = p_liste1.nombreDElement() != p_liste2.nombreDElement();
     for (size_t i = 0; i < p_liste1.nombreDElement() && !listeDifferente; ++i) {
         listeDifferente = p_liste1.obtenir() != p_liste2.obtenir();
     }
     return listeDifferente;
+}
+
+template<class TypeElement>
+Liste<TypeElement>& operator~(const Liste<TypeElement>& p_liste) {
+    Liste<TypeElement>nouvelleListe(p_liste.nombreDElement());
+    for (size_t i = 0; i < p_liste.nombreDElement() / 2; ++i) {
+        TypeElement valeurDebut = p_liste[i];
+        TypeElement valeurFin = p_liste[p_liste.nombreDElement() - 1 - i];
+        nouvelleListe[i] = valeurDebut;
+        nouvelleListe[p_liste.nombreDElement() - 1 - i] = valeurFin;
+    }
+    return nouvelleListe;
 }
 
 template<class TypeElement>

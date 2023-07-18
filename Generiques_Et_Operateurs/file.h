@@ -3,10 +3,14 @@
 #include <iostream>
 #include "liste.h"
 
+
+class file_operateurs;
 template <class TypeElement>
 class File {
 public:
-	File() {};
+	File():
+		m_nombreDElements(0)
+	{};
 
 	File(int p_capacite) :
 		m_nombreDElements(0),
@@ -42,6 +46,13 @@ public:
 	int taille() {
 		return this->m_nombreDElements;
 	};
+
+	template <class TypeElement> friend File<TypeElement> operator+(const File<TypeElement>& p_file1, const File<TypeElement>& p_file2);
+	template <class TypeElement> friend File<TypeElement> operator+=(File<TypeElement>& p_file1, const File<TypeElement>& p_file2);
+	template <class TypeElement> friend bool operator==(const File<TypeElement>& p_file1, const File<TypeElement>& p_file2);
+	template <class TypeElement> friend bool operator!=(const File<TypeElement>& p_file1, const File<TypeElement>& p_file2);
+	template <class TypeElement> friend File<TypeElement> operator~(const File<TypeElement>& p_file);
+	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const File<TypeElement>& p_file);
 
 private:
 	Liste<TypeElement>m_liste;

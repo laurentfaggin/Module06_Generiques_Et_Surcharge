@@ -107,6 +107,9 @@ public:
 			for (size_t i = this->m_nombreDElements; i > 0; --i) {
 				nouvelleListe[i] = this->m_liste[i - 1];
 			}
+			delete[] this->m_liste;
+			this->m_liste = nouvelleListe;
+			this->m_capacite *= 2;
 			nouvelleListe[0] = p_element;
 		}
 		else {
@@ -115,6 +118,7 @@ public:
 			}
 			this->m_liste[0] = p_element;
 		}
+		++this->m_nombreDElements;
 	}
 
 	virtual void supprimer(int p_index) {
@@ -162,9 +166,10 @@ public:
 	template <class TypeElement> friend Liste<TypeElement> operator+ (const Liste<TypeElement>& p_liste1,const Liste<TypeElement>& p_liste2);
 	template <class TypeElement> friend Liste<TypeElement>& operator+= (Liste<TypeElement>& p_liste, TypeElement p_element);
 	template <class TypeElement> friend Liste<TypeElement>& operator+= (Liste<TypeElement>& p_liste1,const Liste<TypeElement>& p_liste2);
+	template <class Typeelement> friend Liste<Typeelement>& operator~ (const Liste<TypeElement>& p_liste);
 	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste);
-	template <class TypeElement> friend Liste<TypeElement>& operator== (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
-	template <class TypeElement> friend Liste<TypeElement>& operator!= (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
+	template <class TypeElement> friend bool operator== (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
+	template <class TypeElement> friend bool operator!= (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
 
 private:
 	int m_nombreDElements;

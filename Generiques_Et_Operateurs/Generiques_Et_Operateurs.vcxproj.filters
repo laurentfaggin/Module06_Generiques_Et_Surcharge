@@ -35,10 +35,10 @@
     <ClInclude Include="pile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Pile_Operateurs.h">
+    <ClInclude Include="pile_operateurs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="File_Operateurs.h">
+    <ClInclude Include="file_operateurs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "liste.h"
 #include "operateur.h"
@@ -53,6 +52,11 @@ void file() {
     file.enfiler(1);
     std::cout << "Taille de la file : " << file.taille() << std::endl;
     std::cout << std::endl;
+    std::cout << file;
+ 
+    File<int> fileInversee = ~ file;
+    std::cout << "Liste inversee avec ~ :" << std::endl;
+    std::cout << fileInversee;
 
     std::cout << "pile.enfiler(2)" << std::endl;
     file.enfiler(2);

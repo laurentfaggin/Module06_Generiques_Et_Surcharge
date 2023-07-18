@@ -4,7 +4,7 @@
 #include "liste.h"
 #include <stdexcept>
 
-class Pile_Operateurs;
+class pile_operateurs;
 template <class TypeElement>
 class Pile {
 public:
@@ -21,12 +21,7 @@ public:
 	};
 
 	~Pile() {
-		for (int i = 0; i < this->m_nombreDElements / 2; ++i) {
-			TypeElement valeurTemporaire = this->m_liste.obtenir(i);
-			TypeElement valeurReference = this->m_liste.obtenir(this->m_nombreDElements - 1 - i);
-			this->m_liste.definir(i, valeurReference);
-			this->m_liste.definir(this->m_nombreDElements - 1 - i, valeurTemporaire);
-		}
+
 	};
 	
 	void empiler(TypeElement p_element) {
@@ -66,9 +61,10 @@ public:
 
 	template <class TypeElement> friend Pile<TypeElement> operator+ (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend Pile<TypeElement> operator+= (Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
-	template <class TypeElement> friend Pile<TypeElement> operator== (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
-	template <class TypeElement> friend Pile<TypeElement> operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
+	template <class TypeElement> friend bool operator== (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
+	template <class TypeElement> friend bool operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend Pile<TypeElement> operator~ (Pile<TypeElement>& p_pile);
+	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Pile<TypeElement>& p_pile);
 
 private:
 	Liste<TypeElement>m_liste;
