@@ -37,7 +37,7 @@ Liste<TypeElement> operator+(const Liste<TypeElement>& p_liste1, const Liste<Typ
     return nouvelleListe;
 }
 
-template< class TypeElement>
+template<class TypeElement>
 Liste<TypeElement>& operator+=(Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2)
 {
     for (size_t i = 0; i < p_liste2.m_nombreDElements; ++i)
@@ -45,6 +45,24 @@ Liste<TypeElement>& operator+=(Liste<TypeElement>& p_liste1, const Liste<TypeEle
         p_liste1.ajouter(p_liste2.m_liste[i]);
     }
     return p_liste1;
+}
+
+template<class TypeElement>
+Liste<TypeElement>& operator==(const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2) {
+    bool listeIdentique = p_liste1.nombreDElement() == p_liste2.nombreDElement();
+    for (size_t i = 0; i < p_liste1.nombreDElement() && listeIdentique; ++i) {
+        listeIdentique = p_liste1.obtenir() == p_liste2.obtenir();
+    }
+    return listeIdentique;
+}
+
+template<class TypeElement>
+Liste<TypeElement>& operator!=(const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2) {
+    bool listeDifferente = p_liste1.nombreDElement() != p_liste2.nombreDElement();
+    for (size_t i = 0; i < p_liste1.nombreDElement() && !listeDifferente; ++i) {
+        listeDifferente = p_liste1.obtenir() != p_liste2.obtenir();
+    }
+    return listeDifferente;
 }
 
 template<class TypeElement>

@@ -117,7 +117,7 @@ void liste() {
     std::cout << "liste5 += liste6 :" << std::endl;
     liste5.afficher();
     Liste<int> essai;
-    essai.ajouter(11);
+    essai.ajouterFin(11);
     essai.ajouter(22);
     essai.ajouter(33);
     essai.ajouter(44);

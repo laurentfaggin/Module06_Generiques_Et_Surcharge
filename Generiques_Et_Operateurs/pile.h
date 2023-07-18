@@ -30,7 +30,7 @@ public:
 	};
 	
 	void empiler(TypeElement p_element) {
-		this->m_liste.ajouter(p_element);
+		this->m_liste.ajouterFin(p_element);
 		++this->m_nombreDElements;
 		this->m_liste.afficher();
 	};
@@ -66,6 +66,9 @@ public:
 
 	template <class TypeElement> friend Pile<TypeElement> operator+ (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend Pile<TypeElement> operator+= (Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
+	template <class TypeElement> friend Pile<TypeElement> operator== (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
+	template <class TypeElement> friend Pile<TypeElement> operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
+	template <class TypeElement> friend Pile<TypeElement> operator~ (Pile<TypeElement>& p_pile);
 
 private:
 	Liste<TypeElement>m_liste;

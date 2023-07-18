@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="collection.h" />
     <ClInclude Include="file.h" />
+    <ClInclude Include="File_Operateurs.h" />
     <ClInclude Include="liste.h" />
     <ClInclude Include="operateur.h" />
     <ClInclude Include="pile.h" />

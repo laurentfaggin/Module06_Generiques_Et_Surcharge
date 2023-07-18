@@ -8,28 +8,25 @@ class File {
 public:
 	File() {};
 
+	File(int p_capacite) :
+		m_nombreDElements(0),
+		m_liste(p_capacite)
+	{
+		;
+	};
+
 	~File() {
-		for (int i = 0; i < this->m_nombreDElements / 2; ++i) {
-			TypeElement valeurTemporaire = this->m_liste.obtenir(i);
-			TypeElement valeurReference = this->m_liste.obtenir(this->m_nombreDElements - 1 - i);
-			this->m_liste.definir(i, valeurReference);
-			this->m_liste.definir(this->m_nombreDElements - 1 - i, valeurTemporaire);
-		}
+
 	};
 	
 	void enfiler(TypeElement p_element) {
-		this->m_liste.ajouter(p_element);
 		++this->m_nombreDElements;
-		for (size_t i = this->m_nombreDElements - 1; i > 0; --i) {
-			this->m_liste.definir(i, this->m_liste.obtenir(i-1));
-		}
-		this->m_liste.definir(0, p_element);
-		this->m_liste.afficher();
+		this->m_liste.ajouterDebut(p_element);
 	};
 
 	TypeElement defiler() {
 		TypeElement valeur = this->m_liste.obtenir(this->m_nombreDElements - 1);
-		this->m_liste.supprimer(this->m_nombreDElements - 1);
+		this->m_liste.supprimerFin();
 		--this->m_nombreDElements;
 		return valeur;
 	};

@@ -59,7 +59,7 @@ public:
 		return this->m_nombreDElements;
 	}
 
-	virtual void ajouter(TypeElement& p_nombreAAjouter) {
+	virtual void ajouter(const TypeElement& p_nombreAAjouter) {
 		if (this->m_nombreDElements == this->m_capacite) {
 			int* nouvelleListe = new int[this->m_capacite * 2];
 			for (int i = 0; i < this->m_nombreDElements; ++i) {
@@ -75,7 +75,7 @@ public:
 
 	virtual void ajouter(TypeElement&& p_nombreAAjouter) {
 		if (this->m_nombreDElements == this->m_capacite) {
-			int* nouvelleListe = new int[this->m_capacite * 2];
+			TypeElement* nouvelleListe = new TypeElement[this->m_capacite * 2];
 			for (int i = 0; i < this->m_nombreDElements; ++i) {
 				nouvelleListe[i] = this->m_liste[i];
 			}
@@ -87,6 +87,36 @@ public:
 		++ this->m_nombreDElements;
 	};
 
+	virtual void ajouterFin(const TypeElement& p_element) {
+		if (this->m_nombreDElements == this->m_capacite) {
+			TypeElement* nouvelleListe = new TypeElement[this->m_capacite * 2];
+			for (int i = 0; i < this->m_nombreDElements; ++i) {
+				nouvelleListe[i] = this->m_liste[i];
+			}
+			delete[] this->m_liste;
+			this->m_liste = nouvelleListe;
+			this->m_capacite *= 2;
+		}
+		this->m_liste[this->m_nombreDElements] = p_element;
+		++ this->m_nombreDElements;
+	}
+
+	virtual void ajouterDebut(const TypeElement& p_element) {
+		if (this->m_nombreDElements == this->m_capacite) {
+			TypeElement* nouvelleListe = new TypeElement[this->m_capacite * 2];
+			for (size_t i = this->m_nombreDElements; i > 0; --i) {
+				nouvelleListe[i] = this->m_liste[i - 1];
+			}
+			nouvelleListe[0] = p_element;
+		}
+		else {
+			for (size_t i = this->m_nombreDElements; i > 0; --i) {
+				this->m_liste[i] = this->m_liste[i - 1];
+			}
+			this->m_liste[0] = p_element;
+		}
+	}
+
 	virtual void supprimer(int p_index) {
 		if (p_index > this->m_nombreDElements) {
 			throw std::invalid_argument("la liste est vide a cet endroit");
@@ -96,6 +126,13 @@ public:
 		}
 		-- this->m_nombreDElements;
 	};
+
+	virtual void supprimerFin() {
+		if (this->m_nombreDElements == 0) {
+			throw std::invalid_argument("la liste est vide");
+		}
+		--this->m_nombreDElements;
+	}
 
 	virtual TypeElement obtenir(const int p_index) const {
 		if (p_index > this->m_nombreDElements) {
@@ -126,6 +163,8 @@ public:
 	template <class TypeElement> friend Liste<TypeElement>& operator+= (Liste<TypeElement>& p_liste, TypeElement p_element);
 	template <class TypeElement> friend Liste<TypeElement>& operator+= (Liste<TypeElement>& p_liste1,const Liste<TypeElement>& p_liste2);
 	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste);
+	template <class TypeElement> friend Liste<TypeElement>& operator== (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
+	template <class TypeElement> friend Liste<TypeElement>& operator!= (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
 
 private:
 	int m_nombreDElements;
