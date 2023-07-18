@@ -8,9 +8,9 @@ File<TypeElement> operator+ (const File<TypeElement>& p_file1, const File<TypeEl
 };
 
 template<class TypeElement>
-File<TypeElement> operator+= (File<TypeElement>& p_file1, const File<TypeElement>& p_file2) {
-	p_file1.m_liste += p_file2.m_liste;
-	return p_file1;
+File<TypeElement> operator+= (const File<TypeElement>& p_file1, File<TypeElement>& p_file2) {
+	p_file2.m_liste += p_file1.m_liste;
+	return p_file2;
 }
 
 template<class TypeElement>
