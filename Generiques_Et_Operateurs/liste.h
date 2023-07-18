@@ -51,6 +51,14 @@ public:
 		}
 	};
 
+	int capacite()const {
+		return this->m_capacite;
+	}
+
+	int nombreDElement()const {
+		return this->m_nombreDElements;
+	}
+
 	virtual void ajouter(TypeElement& p_nombreAAjouter) {
 		if (this->m_nombreDElements == this->m_capacite) {
 			int* nouvelleListe = new int[this->m_capacite * 2];
@@ -89,14 +97,14 @@ public:
 		-- this->m_nombreDElements;
 	};
 
-	virtual TypeElement obtenir(int p_index) {
+	virtual TypeElement obtenir(const int p_index) const {
 		if (p_index > this->m_nombreDElements) {
 			throw std::invalid_argument("la liste n'a pas de valeur acet emplacement");
 		}
 		return this->m_liste[p_index];
 	};
 
-	virtual void definir(int p_index, TypeElement& p_element) {
+	virtual void definir(int p_index, TypeElement p_element) {
 		if (p_index > this->m_nombreDElements) {
 			throw std::invalid_argument("La liste contient deja un element");
 		}
@@ -111,10 +119,13 @@ public:
 		std::cout << affiche;
 	};
 
+	
+
 	template <class TypeElement> friend Liste<TypeElement> operator+ (const Liste<TypeElement>& p_liste,TypeElement p_element);
 	template <class TypeElement> friend Liste<TypeElement> operator+ (const Liste<TypeElement>& p_liste1,const Liste<TypeElement>& p_liste2);
 	template <class TypeElement> friend Liste<TypeElement>& operator+= (Liste<TypeElement>& p_liste, TypeElement p_element);
 	template <class TypeElement> friend Liste<TypeElement>& operator+= (Liste<TypeElement>& p_liste1,const Liste<TypeElement>& p_liste2);
+	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste);
 
 private:
 	int m_nombreDElements;

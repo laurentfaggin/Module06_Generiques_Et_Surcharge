@@ -46,3 +46,14 @@ Liste<TypeElement>& operator+=(Liste<TypeElement>& p_liste1, const Liste<TypeEle
     }
     return p_liste1;
 }
+
+template<class TypeElement>
+std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste) {
+    stream << "Liste: [";
+    for (size_t i = 0; i < p_liste.m_nombreDElements; ++i) {
+        stream << p_liste.m_liste[i];
+        stream << " ";
+    }
+    stream << "]";
+    return stream;
+}

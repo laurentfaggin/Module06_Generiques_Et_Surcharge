@@ -1,15 +1,1 @@
-﻿  main.cpp
-C:\C++\Module06\Generiques_Et_Operateurs\file.h(24,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\C++\Module06\Generiques_Et_Operateurs\file.h(20,1): message : while compiling class template member function 'void File<int>::enfiler(TypeElement)'
-          with
-          [
-              TypeElement=int
-          ]
-C:\C++\Module06\Generiques_Et_Operateurs\main.cpp(53,17): message : see reference to function template instantiation 'void File<int>::enfiler(TypeElement)' being compiled
-          with
-          [
-              TypeElement=int
-          ]
-C:\C++\Module06\Generiques_Et_Operateurs\main.cpp(50,15): message : see reference to class template instantiation 'File<int>' being compiled
-C:\C++\Module06\Generiques_Et_Operateurs\file.h(25,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe
+﻿  Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe

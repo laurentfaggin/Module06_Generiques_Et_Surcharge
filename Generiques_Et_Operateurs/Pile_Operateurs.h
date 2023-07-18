@@ -25,3 +25,22 @@ Pile<TypeElement> operator+=(Pile<TypeElement>& p_pile1, const Pile<TypeElement>
 	p_pile1.m_liste += p_pile2.m_liste;
 	return p_pile1;
 }
+
+template<class TypeElement>
+Pile<TypeElement> operator== (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) {
+	bool pileIdentique = p_pile1.m_liste.nombreDElement() == p_pile2.m_liste.nombreDElement();
+	for (size_t i = 0; i < p_pile1.m_liste.nombreDElement() && pileIdentique; ++i) {
+		pileIdentique = p_pile1.m_liste.obtenir() == p_pile2.m_liste.obtenir();
+	}
+	return nbElementIdentique;
+}
+
+template<class TypeElement>
+Pile<TypeElement> operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) {
+	bool pileDifferente = p_pile1.m_liste.nombreDElement() != p_pile2.m_liste.nombreDElement();
+	for (size_t i = 0; i < p_pile1.m_liste.nombreDElement() $$ !pileDifferente; ++i) {
+		pileDifferente = p_pile1.m_liste.obtenir() != p_pile2.m_liste.obtenir();
+	}
+	return pileDifferente;
+}
+

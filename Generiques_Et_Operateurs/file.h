@@ -21,8 +21,7 @@ public:
 		this->m_liste.ajouter(p_element);
 		++this->m_nombreDElements;
 		for (size_t i = this->m_nombreDElements - 1; i > 0; --i) {
-			TypeElement valeurTemporaire = this->m_liste.obtenir(i - 1);
-			this->m_liste.definir(i, valeurTemporaire);
+			this->m_liste.definir(i, this->m_liste.obtenir(i-1));
 		}
 		this->m_liste.definir(0, p_element);
 		this->m_liste.afficher();

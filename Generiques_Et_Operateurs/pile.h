@@ -9,7 +9,7 @@ template <class TypeElement>
 class Pile {
 public:
 	Pile():
-		m_nombreDElements(0) 
+		m_nombreDElements(this->m_liste.nombreDElement()) 
 	{
 	};
 
@@ -36,13 +36,13 @@ public:
 	};
 
 	TypeElement depiler() {
-		if (this->m_nombreDElements > 0) {
+		int valeur = this->m_liste.obtenir(this->m_nombreDElements-1);
+		if (this->m_liste.nombreDElement() > 0) {
 			--this->m_nombreDElements;
-			int valeur = this->m_liste.obtenir(this->m_nombreDElements);
 			this->m_liste.supprimer(this->m_nombreDElements - 1);
 		}
 		else {
-			throw std::invalid_argument("La liste est vide", nameof(m_liste));
+			throw std::invalid_argument("La liste est vide");
 		}
 		return valeur;
 
@@ -58,7 +58,6 @@ public:
 			vide = true;
 		}
 		return vide;
-		//return this->m_nombreDElements == 0;
 	};
 
 	int taille() {
