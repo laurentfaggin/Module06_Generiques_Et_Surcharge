@@ -26,14 +26,14 @@ Pile<TypeElement> operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeE
 
 template<class  TypeElement>
 Pile<TypeElement> operator~ (const Pile<TypeElement>& p_pile) {
-	Liste<TypeElement> nouvelleListe(p_pile.taille());
-	for (int i = 0; i < p_pile.taille() / 2; ++i) {
+	Pile<TypeElement> nouvellePile(p_pile.taille());
+	for (size_t i = 0; i < p_pile.taille(); ++i) {
 		TypeElement valeurDebut = p_pile.m_liste.obtenir(i);
 		TypeElement valeurFin = p_pile.m_liste.obtenir(p_pile.taille()- 1 - i);
-		nouvelleListe.definir(i, valeurFin);
-		nouvelleListe.definir(p_pile.taille()- 1 - i, valeurDebut);
+		nouvellePile.definir(i, valeurFin);
+		nouvellePile.definir(p_pile.taille()- 1 - i, valeurDebut);
 	}
-	return nouvelleListe;
+	return nouvellePile;
 }
 
 template<class TypeElement>
