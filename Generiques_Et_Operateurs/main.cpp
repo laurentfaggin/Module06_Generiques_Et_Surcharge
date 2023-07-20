@@ -5,6 +5,7 @@
 #include "file.h"
 #include "file_operateurs.h"
 #include "pile_operateurs.h"
+#include "pile_methodes.h"
 
 void liste();
 void pile();
@@ -12,18 +13,25 @@ void file();
 
 int main()
 {
-    std::cout << "********************   LISTE   *********************" << std::endl;
-    liste();
+    //std::cout << "********************   LISTE   *********************" << std::endl;
+    //liste();
 
     std::cout << "********************   PILE   *********************" << std::endl;
     pile();
 
-    std::cout << "********************   FILE   *********************" << std::endl;
-    file();
+    //std::cout << "********************   FILE   *********************" << std::endl;
+    //file();
 }
 
 void pile() {
     Pile<int> pile;
+    Pile<char>pileChar;
+    pileChar.empiler('(');
+    pileChar.empiler(')');
+    std::string listeChar = pileChar.pileToString();
+    bool bienImbriques = caracteresCorrectementImbriques(pileChar);
+    std::cout << "bool bien imbriques: " << bienImbriques;
+
     std::cout << "pile.empiler(1)" << std::endl;
     pile.empiler(1);
     std::cout << "Taille de la pile : " << pile.taille() << std::endl;

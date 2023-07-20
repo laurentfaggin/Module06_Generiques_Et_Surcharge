@@ -1,22 +1,21 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "pile.h"
 
 
 
 template<class TypeElement>
-bool caracteresCorrectementImbriques(const Pile<TypeElement>& p_pile) {
+Pile<TypeElement> caracteresCorrectementImbriques(const Pile<TypeElement>& p_pile) {
 	Pile<char> pile;
-	std::string liste = p_pile.listeToString();
+	std::string liste = p_pile.pileToString();
 	bool ok = true;
-	for (char c : p_string) {
+	for (char c : liste) {
 		if (c == '(' || c == '{' || c == "[") {
 			pile.empiler();
 		}
-		if (c == ')' && pile.sommet() == '(' ||
-			c == '}' && pile.sommet() == '{' ||
-			c == ']' && pile.sommet() == '[') 
+		if ((c == ')' && pile.sommet() == '(') ||
+			(c == '}' && pile.sommet() == '{') ||
+			(c == ']' && pile.sommet() == '[')) 
 		{
 			pile.depiler();
 		}
@@ -24,5 +23,8 @@ bool caracteresCorrectementImbriques(const Pile<TypeElement>& p_pile) {
 			ok = false;
 		}
 	}
-	return ok && pile.estPileVide();
+	if (ok && pile.estPileVide()) {
+		ok = true;
+	}
+	return ok;
 }

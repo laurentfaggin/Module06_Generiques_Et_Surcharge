@@ -1,1 +1,6 @@
-﻿  Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe
+﻿  main.cpp
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.h(8,5): error C2988: unrecognizable template declaration/definition
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.h(8,5): error C2143: syntax error: missing ';' before '<'
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.h(8,5): error C2059: syntax error: '<'
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.h(8,84): error C2143: syntax error: missing ';' before '{'
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.h(8,84): error C2447: '{': missing function header (old-style formal list?)
