@@ -5,7 +5,7 @@
 
 #include "collection.h"
 
-class operateur;
+
 template <class TypeElement>
 class Liste : public collection < TypeElement> {
 public:

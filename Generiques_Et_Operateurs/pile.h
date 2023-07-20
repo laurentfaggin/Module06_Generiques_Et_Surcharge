@@ -4,7 +4,7 @@
 #include "liste.h"
 #include <stdexcept>
 
-class pile_operateurs;
+
 template <class TypeElement>
 class Pile {
 public:

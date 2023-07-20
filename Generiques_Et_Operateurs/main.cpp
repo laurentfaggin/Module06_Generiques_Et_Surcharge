@@ -15,10 +15,10 @@ int main()
     liste();
 
     std::cout << "********************   PILE   *********************" << std::endl;
-   // pile();
+    pile();
 
     std::cout << "********************   FILE   *********************" << std::endl;
-    //file();
+    file();
 }
 
 void pile() {
