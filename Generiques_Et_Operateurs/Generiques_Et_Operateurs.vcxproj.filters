@@ -41,5 +41,8 @@
     <ClInclude Include="file_operateurs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="pile_methodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

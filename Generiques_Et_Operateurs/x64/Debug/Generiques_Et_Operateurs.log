@@ -1,4 +1,4 @@
 ﻿  main.cpp
 C:\C++\Module06\Generiques_Et_Operateurs\file_operateurs.h(30,63): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
-C:\C++\Module06\Generiques_Et_Operateurs\main.cpp(60,35): message : see reference to function template instantiation 'File<int> operator ~<int>(const File<int> &)' being compiled
+C:\C++\Module06\Generiques_Et_Operateurs\main.cpp(64,35): message : see reference to function template instantiation 'File<int> operator ~<int>(const File<int> &)' being compiled
   Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe

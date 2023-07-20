@@ -69,6 +69,7 @@ public:
 		++ this->m_nombreDElements;
 	}
 
+	//voir une methode pour modifier la position en modifiant simplement l'index de depart (buffer circulaire)
 	virtual void ajouterDebut(const TypeElement& p_element) {
 		agrandirCapaciteSiNessaire();
 		for (size_t i = this->m_nombreDElements; i > 0; --i) {
@@ -112,7 +113,7 @@ public:
 
 	virtual std::string toString() {
 		std::stringstream affiche;
-		affiche << "[";
+		affiche << "[ ";
 		for (int i = 0; i < this->m_nombreDElements; i++) {
 			affiche << this->obtenir(i) << " ";
 		}

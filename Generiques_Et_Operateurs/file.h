@@ -23,6 +23,8 @@ public:
 
 	};
 	
+	//Refaire la methode avec le deplacement d'index
+
 	void enfiler(TypeElement p_element) {
 		++this->m_nombreDElements;
 		this->m_liste.ajouterDebut(p_element);

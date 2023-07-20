@@ -4,6 +4,7 @@
 #include "pile.h"
 #include "file.h"
 #include "file_operateurs.h"
+#include "pile_operateurs.h"
 
 void liste();
 void pile();
@@ -27,6 +28,7 @@ void pile() {
     pile.empiler(1);
     std::cout << "Taille de la pile : " << pile.taille() << std::endl;
     std::cout << std::endl;
+    std::cout << "pile: " << pile;
 
     std::cout << "pile.empiler(2)" << std::endl;
     pile.empiler(2);
@@ -37,6 +39,8 @@ void pile() {
     pile.empiler(3);
     std::cout << "Taille de la pile : " << pile.taille() << std::endl;
     std::cout <<std::endl;
+    std::cout << "pile: " << pile;
+
 
     std::cout << "pile.depiler()" << std::endl;
     int valeurDepilee = pile.depiler();

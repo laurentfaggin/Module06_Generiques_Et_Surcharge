@@ -79,7 +79,7 @@ Liste<TypeElement> operator~(const Liste<TypeElement>& p_liste) {
 
 template<class TypeElement>
 std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste) {
-    stream << "Liste: [";
+    stream << "Liste: [ ";
     for (size_t i = 0; i < p_liste.m_nombreDElements; ++i) {
         stream << p_liste.m_liste[i];
         stream << " ";
