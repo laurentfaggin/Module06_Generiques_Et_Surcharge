@@ -16,7 +16,6 @@ File<TypeElement> operator+= (File<TypeElement>& p_file1, const File<TypeElement
 	return p_file1;
 }
 
-
 template<class TypeElement>
 bool operator== (const File<TypeElement>& p_file1, const File<TypeElement>& p_file2) {
 	return p_file1.m_liste == p_file2.m_liste;
@@ -26,18 +25,15 @@ template<class TypeElement>
 bool operator!= (const File<TypeElement>& p_file1, const File<TypeElement>& p_file2) {
 	return p_file1.m_liste != p_file2.m_liste;
 }
-//File<TypeElement> operator~(const File<TypeElement>& p_file);
 
 template<class TypeElement>
 File<TypeElement> operator~ (const File<TypeElement>& p_file) {
 	File<TypeElement>nouvelleFile(p_file.m_liste.nombreDElement());
-	for (size_t i = 0; i < p_file.m_liste.nombreDElement() / 2; ++i) {
+	for (size_t i = 0; i < p_file.m_liste.nombreDElement(); ++i) {
 		nouvelleFile.enfiler(p_file.m_liste.obtenir(i));
 	}
 	return nouvelleFile;
 };
-
-//std::ostream& operator<<(std::ostream& stream, const File<TypeElement>& p_file);
 
 template<class TypeElement>
 std::ostream& operator<<(std::ostream& stream, const File<TypeElement>& p_file) {

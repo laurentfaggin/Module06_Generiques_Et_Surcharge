@@ -54,8 +54,11 @@ void file() {
     std::cout << "Taille de la file : " << file.taille() << std::endl;
     std::cout << std::endl;
     std::cout << file;
- 
-    File<int> fileInversee = ~ file;
+    file.enfiler(2);
+    file.enfiler(3);
+
+    File<int> fileInversee = ~file;
+    std::cout << "file:" << file;
     std::cout << "Liste inversee avec ~ :" << std::endl;
     std::cout << fileInversee;
 
