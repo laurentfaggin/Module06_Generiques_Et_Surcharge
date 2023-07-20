@@ -59,12 +59,21 @@ public:
 		return this->m_nombreDElements;
 	};
 
+	std::string listeToString(const Pile<TypeElement>& p_pile) {
+		std::stringstream string;
+		for (size_t i = 0; i < p_pile.taille() - 1; ++i) {
+			string << p_pile.m_liste.obtenir(i);
+		}
+		return string.str();
+	}
+
 	template <class TypeElement> friend Pile<TypeElement> operator+ (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend Pile<TypeElement> operator+= (Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend bool operator== (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend bool operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend Pile<TypeElement> operator~ (Pile<TypeElement>& p_pile);
 	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Pile<TypeElement>& p_pile);
+	template <class TypeElement> friend std::string caracteresCorrectementImbriques(const Pile<TypeElement>& p_pile);
 
 private:
 	Liste<TypeElement>m_liste;
