@@ -3,6 +3,7 @@
 #include "operateur.h"
 #include "pile.h"
 #include "file.h"
+#include "file_operateurs.h"
 
 void liste();
 void pile();
@@ -11,13 +12,13 @@ void file();
 int main()
 {
     std::cout << "********************   LISTE   *********************" << std::endl;
-    //liste();
+    liste();
 
     std::cout << "********************   PILE   *********************" << std::endl;
-    pile();
+   // pile();
 
     std::cout << "********************   FILE   *********************" << std::endl;
-    file();
+    //file();
 }
 
 void pile() {
@@ -71,61 +72,64 @@ void file() {
 void liste() {
     Liste <int> liste;
     for (int i = 1; i < 6; i++) {
-        liste.ajouter(i);
+        liste.ajouterFin(i);
     }
     std::cout << "liste de depart: " << std::endl;
-    liste.afficher();
+    std::cout << liste.toString();
     Liste<int> listeTest = liste + 6;
     listeTest + 7;
     std::cout << "operateur + avec liste + 5 et liste + 6: " << std::endl;
-    listeTest.afficher();
+    std::cout << listeTest.toString();
+
+   /* ~listeTest;
+    std::cout << "tilde: " << listeTest << std::endl;*/
 
     liste += 8;
     liste += 9;
     std::cout << "operateur += avec liste+=8 et liste+=9 " << std::endl;
-    liste.afficher();
+    //liste.afficher();
 
     Liste<int> liste2;
     for (int i = 0; i < 5; ++i) {
-        liste2.ajouter(i);
+        liste2.ajouterFin(i);
     }
     Liste<int> liste3;
     std::cout << "premiere liste: " << std::endl;
-    liste2.afficher();
+    //liste2.afficher();
 
     for (int i = 5; i < 10; ++i) {
-        liste3.ajouter(i);
+        liste3.ajouterFin(i);
     }
     Liste<int> listeTest2 = liste2 + liste3;
     std::cout << "deuxieme liste: " << std::endl;
-    liste3.afficher();
+    //liste3.afficher();
 
     std::cout << "concatenation avec operateur + avec liste1 + liste2 : " << std::endl;
-    listeTest2.afficher();
+    //listeTest2.afficher();
 
     Liste<int> liste5;
     for (int i = 10; i <= 15; ++i)
     {
-        liste5.ajouter(i);
+        liste5.ajouterFin(i);
     }
     Liste<int> liste6;
     for (int i = 16; i <= 20; ++i)
     {
-        liste6.ajouter(i);
+        liste6.ajouterFin(i);
     }
     std::cout << "liste 5: " << std::endl;
-    liste5.afficher();
+    //liste5.afficher();
     std::cout << "liste 6: " << std::endl;
-    liste6.afficher();
-    liste5 += liste6;
+    //liste6.afficher();
+    //liste5 += liste6;
     std::cout << "liste5 += liste6 :" << std::endl;
-    liste5.afficher();
+    //liste5.afficher();
     Liste<int> essai;
     essai.ajouterFin(11);
-    essai.ajouter(22);
-    essai.ajouter(33);
-    essai.ajouter(44);
-    essai.ajouter(55);
+    essai.ajouterFin(22);
+    essai.ajouterFin(33);
+    essai.ajouterFin(44);
+    essai.ajouterFin(55);
 
     std::cout << essai << std::endl;
 
@@ -133,11 +137,11 @@ void liste() {
 void heritage() {
     Liste<int> liste;
     collection<int>& c = liste;
-    c.ajouter(2);
-    c.ajouter(3);
-    c.ajouter(4);
-    c.ajouter(5);
-    c.ajouter(6);
-    liste.afficher();
+    c.ajouterFin(2);
+    c.ajouterFin(3);
+    c.ajouterFin(4);
+    c.ajouterFin(5);
+    c.ajouterFin(6);
+    //liste.afficher();
 
 }

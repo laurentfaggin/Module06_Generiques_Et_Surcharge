@@ -4,7 +4,7 @@
 #include "liste.h"
 
 
-class file_operateurs;
+
 template <class TypeElement>
 class File {
 public:

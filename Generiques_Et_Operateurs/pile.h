@@ -27,7 +27,7 @@ public:
 	void empiler(TypeElement p_element) {
 		this->m_liste.ajouterFin(p_element);
 		++this->m_nombreDElements;
-		this->m_liste.afficher();
+		std::cout << this->m_liste.toString();
 	};
 
 	TypeElement depiler() {

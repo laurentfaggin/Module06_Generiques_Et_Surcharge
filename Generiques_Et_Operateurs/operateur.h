@@ -7,14 +7,14 @@ template< class TypeElement>
 Liste<TypeElement> operator+(const Liste<TypeElement>& p_liste, TypeElement p_element)
 {
     Liste<TypeElement> liste(p_liste);
-    liste.ajouter(p_element);
+    liste.ajouterFin(p_element);
     return liste;
 }
 
 template< class TypeElement>
 Liste<TypeElement>& operator+=(Liste<TypeElement>& p_liste, TypeElement p_element)
 {
-    p_liste.ajouter(p_element);
+    p_liste.ajouterFin(p_element);
     return p_liste;
 }
 
@@ -28,11 +28,11 @@ Liste<TypeElement> operator+(const Liste<TypeElement>& p_liste1, const Liste<Typ
     Liste<TypeElement> nouvelleListe(capacite);
     for (size_t i = 0; i < p_liste1.m_nombreDElements; ++i)
     {
-        nouvelleListe.ajouter(p_liste1.m_liste[i]);
+        nouvelleListe.ajouterFin(p_liste1.m_liste[i]);
     }
     for (size_t i = 0; i < p_liste2.m_nombreDElements; ++i)
     {
-        nouvelleListe.ajouter(p_liste2.m_liste[i]);
+        nouvelleListe.ajouterFin(p_liste2.m_liste[i]);
     }
     return nouvelleListe;
 }
@@ -42,7 +42,7 @@ Liste<TypeElement>& operator+=(Liste<TypeElement>& p_liste1, const Liste<TypeEle
 {
     for (size_t i = 0; i < p_liste2.m_nombreDElements; ++i)
     {
-        p_liste1.ajouter(p_liste2.m_liste[i]);
+        p_liste1.ajouterFin(p_liste2.m_liste[i]);
     }
     return p_liste1;
 }
@@ -66,13 +66,13 @@ bool operator!=(const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_
 }
 
 template<class TypeElement>
-Liste<TypeElement>& operator~(const Liste<TypeElement>& p_liste) {
+Liste<TypeElement> operator~(const Liste<TypeElement>& p_liste) {
     Liste<TypeElement>nouvelleListe(p_liste.nombreDElement());
     for (size_t i = 0; i < p_liste.nombreDElement() / 2; ++i) {
-        TypeElement valeurDebut = p_liste[i];
-        TypeElement valeurFin = p_liste[p_liste.nombreDElement() - 1 - i];
-        nouvelleListe[i] = valeurDebut;
-        nouvelleListe[p_liste.nombreDElement() - 1 - i] = valeurFin;
+        TypeElement valeurDebut = p_liste.obtenir(i);
+        TypeElement valeurFin = p_liste.obtenir(p_liste.nombreDElement() - 1 - i);
+        nouvelleListe.definir(i,valeurDebut);
+        nouvelleListe.definir(p_liste.nombreDElement() - 1 - i, valeurFin);
     }
     return nouvelleListe;
 }
@@ -85,5 +85,6 @@ std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste
         stream << " ";
     }
     stream << "]";
+    stream << std::endl;
     return stream;
 }
