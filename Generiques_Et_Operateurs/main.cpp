@@ -8,7 +8,7 @@
 #include "pile_methodes.h"
 
 void liste();
-void pile();
+void pileChar();
 void file();
 
 int main()
@@ -17,18 +17,19 @@ int main()
     //liste();
 
     std::cout << "********************   PILE   *********************" << std::endl;
-    pile();
+    pileChar();
 
     //std::cout << "********************   FILE   *********************" << std::endl;
     //file();
 }
 
-void pile() {
+void pileChar() {
     //Pile<int> pile;
     Pile<char>pileChar;
     pileChar.empiler('(');
     pileChar.empiler(')');
     std::string listeChar = pileChar.pileToString();
+    //std::string string = "()";
     bool bienImbriques = caracteresCorrectementImbriques(listeChar);
     if (bienImbriques) {
         std::cout << "les caracteres sont bien imbriques" << std::endl;
@@ -36,31 +37,31 @@ void pile() {
     if (!bienImbriques) {
         std::cout << "Les caracteres ne sont pas imbriques correctement" << std::endl;
     }
-    //std::cout << "bool bien imbriques: " << bienImbriques;
+    std::cout << "bool bien imbriques: " << bienImbriques;
 
-   /* std::cout << "pile.empiler(1)" << std::endl;
-    pile.empiler(1);
-    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
+    std::cout << "pile.empiler(1)" << std::endl;
+    pileChar.empiler(1);
+    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
     std::cout << std::endl;
-    std::cout << "pile: " << pile;
+    std::cout << "pile: " << pileChar;
 
     std::cout << "pile.empiler(2)" << std::endl;
-    pile.empiler(2);
-    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
+    pileChar.empiler(2);
+    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
     std::cout << std::endl;
 
     std::cout << "pile.empiler(3)" << std::endl;
-    pile.empiler(3);
-    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
+    pileChar.empiler(3);
+    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
     std::cout <<std::endl;
-    std::cout << "pile: " << pile;
+    std::cout << "pile: " << pileChar;
 
 
     std::cout << "pile.depiler()" << std::endl;
-    int valeurDepilee = pile.depiler();
+    int valeurDepilee = pileChar.depiler();
     std::cout << "valeur depile = " << valeurDepilee << std::endl;
-    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
-    std::cout << std::endl;*/
+    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
+    std::cout << std::endl;
 
 }
 

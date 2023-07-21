@@ -11,9 +11,9 @@ bool caracteresCorrectementImbriques(std::string p_string) {
 		if (c == '(' || c == '{' || c == '[') {
 			pile.empiler(c);
 		}
-		if ((c == ')' && pile.sommet() == '(') ||
-			(c == '}' && pile.sommet() == '{') ||
-			(c == ']' && pile.sommet() == '['))
+		else if ((c == ')' && pile.sommet() == '(') ||
+				(c == '}' && pile.sommet() == '{') ||
+				(c == ']' && pile.sommet() == '['))
 		{
 			pile.depiler();
 		}
