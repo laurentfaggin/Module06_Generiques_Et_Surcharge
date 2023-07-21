@@ -5,7 +5,9 @@
 template<class TypeElement>
 Pile<TypeElement> operator+(const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) 
 {
-	return p_pile1.m_liste + p_pile2.m_liste;
+	Pile<TypeElement>nouvellePile;
+	nouvellePile.m_liste = p_pile1.m_liste + p_pile2.m_liste;
+	return nouvellePile;
 }
 
 template<class TypeElement>

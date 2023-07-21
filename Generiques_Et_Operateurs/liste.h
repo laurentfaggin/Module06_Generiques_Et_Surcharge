@@ -11,8 +11,8 @@ class Liste : public collection < TypeElement> {
 public:
 	Liste() {
 		this->m_nombreDElements = 0;
-		this->m_capacite = 20;
-		this->m_liste = new TypeElement[20];
+		this->m_capacite = 1;
+		this->m_liste = new TypeElement[this->m_capacite];
 	}
 	Liste(int p_capacite) :
 		m_nombreDElements(0),
@@ -27,13 +27,13 @@ public:
 		}
 	};
 
-	Liste(const Liste<TypeElement>& p_listeACopier) :
+	Liste(const Liste& p_listeACopier) :
 		m_nombreDElements(p_listeACopier.m_nombreDElements),
 		m_capacite(p_listeACopier.m_capacite),
-		m_liste(nullptr)
+		m_liste(p_listeACopier.m_liste)
 	{
-		this->m_liste = new int[this->m_capacite];
-		for (int i = 0; i < p_listeACopier.m_nombreDElements; i++) {
+		this->m_liste = new TypeElement[this->m_capacite];
+		for (size_t i = 0; i < this->m_nombreDElements; ++i) {
 			this->m_liste[i] = p_listeACopier.m_liste[i];
 		}
 	}
@@ -150,3 +150,4 @@ private:
 		}
 	}
 };
+

@@ -1,9 +1,9 @@
 #include <iostream>
 #include "liste.h"
 #include "operateur.h"
-#include "pile.h"
 #include "file.h"
 #include "file_operateurs.h"
+#include "pile.h"
 #include "pile_operateurs.h"
 #include "pile_methodes.h"
 
@@ -24,15 +24,21 @@ int main()
 }
 
 void pile() {
-    Pile<int> pile;
+    //Pile<int> pile;
     Pile<char>pileChar;
     pileChar.empiler('(');
     pileChar.empiler(')');
     std::string listeChar = pileChar.pileToString();
-    bool bienImbriques = caracteresCorrectementImbriques(pileChar);
-    std::cout << "bool bien imbriques: " << bienImbriques;
+    bool bienImbriques = caracteresCorrectementImbriques(listeChar);
+    if (bienImbriques) {
+        std::cout << "les caracteres sont bien imbriques" << std::endl;
+    }
+    if (!bienImbriques) {
+        std::cout << "Les caracteres ne sont pas imbriques correctement" << std::endl;
+    }
+    //std::cout << "bool bien imbriques: " << bienImbriques;
 
-    std::cout << "pile.empiler(1)" << std::endl;
+   /* std::cout << "pile.empiler(1)" << std::endl;
     pile.empiler(1);
     std::cout << "Taille de la pile : " << pile.taille() << std::endl;
     std::cout << std::endl;
@@ -54,7 +60,7 @@ void pile() {
     int valeurDepilee = pile.depiler();
     std::cout << "valeur depile = " << valeurDepilee << std::endl;
     std::cout << "Taille de la pile : " << pile.taille() << std::endl;
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 
 }
 
