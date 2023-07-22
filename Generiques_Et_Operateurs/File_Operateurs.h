@@ -29,7 +29,7 @@ bool operator!= (const File<TypeElement>& p_file1, const File<TypeElement>& p_fi
 template<class TypeElement>
 File<TypeElement> operator~ (const File<TypeElement>& p_file) {
 	File<TypeElement>nouvelleFile(p_file.m_liste.nombreDElement());
-	for (size_t i = 0; i < p_file.m_liste.nombreDElement(); ++i) {
+	for (int i = 0; i < p_file.m_liste.nombreDElement(); ++i) {
 		nouvelleFile.enfiler(p_file.m_liste.obtenir(i));
 	}
 	return nouvelleFile;

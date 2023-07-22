@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "liste.h"
 #include "operateur.h"
 #include "file.h"
@@ -25,11 +26,14 @@ int main()
 
 void pileChar() {
     //Pile<int> pile;
+    std::string infixe = "(1+2)*3-4*5";
+    Pile<char>postfixe;
+    postfixe = infixeConvertiEnPostfixe(infixe);
     Pile<char>pileChar;
     pileChar.empiler('(');
     pileChar.empiler(')');
     std::string listeChar = pileChar.pileToString();
-    //std::string string = "()";
+    std::string string = "()";
     bool bienImbriques = caracteresCorrectementImbriques(listeChar);
     if (bienImbriques) {
         std::cout << "les caracteres sont bien imbriques" << std::endl;

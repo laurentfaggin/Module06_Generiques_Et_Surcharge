@@ -33,7 +33,7 @@ public:
 		m_liste(p_listeACopier.m_liste)
 	{
 		this->m_liste = new TypeElement[this->m_capacite];
-		for (size_t i = 0; i < this->m_nombreDElements; ++i) {
+		for (size_t i = 0; i < p_listeACopier.m_nombreDElements; ++i) {
 			this->m_liste[i] = p_listeACopier.m_liste[i];
 		}
 	}

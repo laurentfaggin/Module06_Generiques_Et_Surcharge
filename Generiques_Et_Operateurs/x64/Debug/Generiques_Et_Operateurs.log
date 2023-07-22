@@ -1,1 +1,15 @@
-﻿  Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe
+﻿  main.cpp
+C:\C++\Module06\Generiques_Et_Operateurs\main.cpp(31,14): error C2280: 'Pile<char> &Pile<char>::operator =(const Pile<char> &)': attempting to reference a deleted function
+C:\C++\Module06\Generiques_Et_Operateurs\pile.h(86,1): message : compiler has generated 'Pile<char>::operator =' here
+C:\C++\Module06\Generiques_Et_Operateurs\pile.h(86,1): message : 'Pile<char> &Pile<char>::operator =(const Pile<char> &)': function was implicitly deleted because a data member invokes a deleted or inaccessible function 'Liste<TypeElement> &Liste<TypeElement>::operator =(const Liste<TypeElement> &)'
+          with
+          [
+              TypeElement=char
+          ]
+C:\C++\Module06\Generiques_Et_Operateurs\liste.h(152,1): message : 'Liste<TypeElement> &Liste<TypeElement>::operator =(const Liste<TypeElement> &)': function was implicitly deleted because 'Liste<TypeElement>' has a user-defined move constructor
+          with
+          [
+              TypeElement=char
+          ]
+  pile_methodes.cpp
+  Generating Code...

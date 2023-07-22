@@ -2,15 +2,15 @@
 #include <stdexcept>
 #include <iostream>
 #include "liste.h"
-#include "pile_methodes.h"
+
 
 
 
 template <class TypeElement>
 class Pile {
 public:
-	Pile():
-		m_nombreDElements(this->m_liste.nombreDElement()) 
+	Pile() :
+		m_nombreDElements(this->m_liste.nombreDElement())
 	{
 	};
 
@@ -20,6 +20,15 @@ public:
 	{
 		;
 	};
+
+	Pile(const Pile<TypeElement>& p_pileACopier) :
+		m_nombreDElements(p_pileACopier.m_nombreDElements),
+		m_liste(p_pileACopier.m_liste)
+	{
+		for (int i = 0; i < p_pileACopier.m_nombreDElements; ++i) {
+			this->m_liste.ajouterFin(p_pileACopier.m_liste.obtenir(i));
+		}
+	}
 
 	~Pile() {
 
@@ -48,11 +57,7 @@ public:
 	};
 
 	bool estPileVide() {
-		bool vide = false;
-		if (this->m_nombreDElements == 0) {
-			vide = true;
-		}
-		return vide;
+		return m_nombreDElements == 0;
 	};
 
 	int taille() {
@@ -61,7 +66,7 @@ public:
 
 	std::string pileToString() {
 		std::stringstream string;
-		for (size_t i = 0; i < this->taille()-1; ++i) {
+		for (int i = 0; i < this->taille()-1; ++i) {
 			string << this->m_liste.obtenir(i);
 		}
 		return string.str();
@@ -73,6 +78,7 @@ public:
 	template <class TypeElement> friend bool operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend Pile<TypeElement> operator~ (Pile<TypeElement>& p_pile);
 	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Pile<TypeElement>& p_pile);
+
 
 private:
 	Liste<TypeElement>m_liste;

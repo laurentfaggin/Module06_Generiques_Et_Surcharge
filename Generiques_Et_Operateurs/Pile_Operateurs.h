@@ -2,6 +2,7 @@
 #include <string>
 #include "pile.h"
 
+
 template<class TypeElement>
 Pile<TypeElement> operator+(const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) 
 {
@@ -16,13 +17,14 @@ Pile<TypeElement> operator+=(Pile<TypeElement>& p_pile1, const Pile<TypeElement>
 	return p_pile1;
 }
 
+
 template<class TypeElement>
-Pile<TypeElement> operator== (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) {
+bool operator== (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) {
 	return p_pile1.m_liste == p_pile2.m_liste;
 }
 
 template<class TypeElement>
-Pile<TypeElement> operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) {
+bool operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2) {
 	return p_pile1.m_liste != p_pile2.m_liste;
 }
 
