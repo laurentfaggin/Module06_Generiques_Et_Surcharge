@@ -10,7 +10,7 @@ template <class TypeElement>
 class Pile {
 public:
 	Pile() :
-		m_nombreDElements(this->m_liste.nombreDElement())
+		m_nombreDElements(0)
 	{
 	};
 
@@ -22,17 +22,21 @@ public:
 	};
 
 	Pile(const Pile<TypeElement>& p_pileACopier) :
-		m_nombreDElements(p_pileACopier.m_nombreDElements),
-		m_liste(p_pileACopier.m_liste)
+		m_liste(p_pileACopier.m_liste),
+		m_nombreDElements(p_pileACopier.m_nombreDElements)
 	{
-		for (int i = 0; i < p_pileACopier.m_nombreDElements; ++i) {
-			this->m_liste.ajouterFin(p_pileACopier.m_liste.obtenir(i));
-		}
 	}
 
 	~Pile() {
 
 	};
+
+	Pile<TypeElement>& operator=(const Pile<TypeElement>& p_pile2) {
+		this->m_nombreDElements = p_pile2.m_nombreDElements;
+		this->m_liste = p_pile2.m_liste;
+
+		return *this;
+	}
 	
 	void empiler(TypeElement p_element) {
 		this->m_liste.ajouterFin(p_element);
@@ -78,7 +82,6 @@ public:
 	template <class TypeElement> friend bool operator!= (const Pile<TypeElement>& p_pile1, const Pile<TypeElement>& p_pile2);
 	template <class TypeElement> friend Pile<TypeElement> operator~ (Pile<TypeElement>& p_pile);
 	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Pile<TypeElement>& p_pile);
-
 
 private:
 	Liste<TypeElement>m_liste;

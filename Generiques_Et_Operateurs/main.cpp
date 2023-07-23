@@ -11,24 +11,31 @@
 void liste();
 void pileChar();
 void file();
+void pilePostfixe();
 
 int main()
 {
     //std::cout << "********************   LISTE   *********************" << std::endl;
     //liste();
 
-    std::cout << "********************   PILE   *********************" << std::endl;
+   std::cout << "********************   PILE   *********************" << std::endl;
     pileChar();
 
+    std::cout << "*******************   POSTFIXE   *****************" << std::endl;
+    //pilePostfixe();
+
     //std::cout << "********************   FILE   *********************" << std::endl;
-    //file();
+    file();
+}
+void pilePostfixe() {
+    std::string infixe = "(1+2)*3-4*5";
+    //Pile<char>postfixe(infixe.length());
+    Pile<char>postfixe2(infixeConvertiEnPostfixe(infixe));
+    std::cout << "postfixe: " << postfixe2 << std::endl;
 }
 
 void pileChar() {
-    //Pile<int> pile;
-    std::string infixe = "(1+2)*3-4*5";
-    Pile<char>postfixe;
-    postfixe = infixeConvertiEnPostfixe(infixe);
+    Pile<int> pile;
     Pile<char>pileChar;
     pileChar.empiler('(');
     pileChar.empiler(')');
@@ -44,29 +51,27 @@ void pileChar() {
     std::cout << "bool bien imbriques: " << bienImbriques;
 
     std::cout << "pile.empiler(1)" << std::endl;
-    pileChar.empiler(1);
-    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
+    pile.empiler(1);
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
     std::cout << std::endl;
-    std::cout << "pile: " << pileChar;
+    std::cout << "pile: " << pile;
 
     std::cout << "pile.empiler(2)" << std::endl;
-    pileChar.empiler(2);
-    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
+    pile.empiler(2);
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
     std::cout << std::endl;
 
     std::cout << "pile.empiler(3)" << std::endl;
-    pileChar.empiler(3);
-    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
+    pile.empiler(3);
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
     std::cout <<std::endl;
-    std::cout << "pile: " << pileChar;
-
+    std::cout << "pile: " << pile << std::endl;;
 
     std::cout << "pile.depiler()" << std::endl;
-    int valeurDepilee = pileChar.depiler();
+    int valeurDepilee = pile.depiler();
     std::cout << "valeur depile = " << valeurDepilee << std::endl;
-    std::cout << "Taille de la pile : " << pileChar.taille() << std::endl;
+    std::cout << "Taille de la pile : " << pile.taille() << std::endl;
     std::cout << std::endl;
-
 }
 
 void file() {

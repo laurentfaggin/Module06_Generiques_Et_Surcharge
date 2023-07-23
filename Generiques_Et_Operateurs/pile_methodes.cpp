@@ -61,22 +61,26 @@ Pile<char>infixeConvertiEnPostfixe(std::string p_stringInfixe) {
 	return pilePostfixe;
 }
 
+
+
 int evaluationPriorite(char p_char) {
 	int priorite = 0;
-	if (p_char == '-') {
+	switch (p_char) {
+	case '-':
 		priorite = 1;
-	}
-	else if (p_char == '+') {
+		break;
+	case '+':
 		priorite = 2;
-	}
-	else if (p_char == '/') {
+		break;
+	case '/':
 		priorite = 3;
-	}
-	else if (p_char == '*') {
+		break;
+	case '*':
 		priorite = 4;
-	}
-	else{
+		break;
+	default:
 		priorite = 0;
+		break;
 	}
 	return priorite;
 }
