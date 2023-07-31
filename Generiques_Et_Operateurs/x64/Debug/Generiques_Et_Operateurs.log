@@ -1,2 +1,52 @@
 ﻿  main.cpp
-  Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,6): error C2988: unrecognizable template declaration/definition
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,6): error C2143: syntax error: missing ';' before '<'
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,6): error C2059: syntax error: '<'
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,127): error C2143: syntax error: missing ';' before '{'
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,127): error C2447: '{': missing function header (old-style formal list?)
+C:\C++\Module06\Generiques_Et_Operateurs\main.cpp(191,42): error C2039: 'filtrer': is not a member of 'Liste<TypeElement>'
+          with
+          [
+              TypeElement=int
+          ]
+C:\C++\Module06\Generiques_Et_Operateurs\pile.h(87,2): message : see declaration of 'Liste<TypeElement>'
+          with
+          [
+              TypeElement=int
+          ]
+  pile_methodes.cpp
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,6): error C2988: unrecognizable template declaration/definition
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,6): error C2143: syntax error: missing ';' before '<'
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,6): error C2059: syntax error: '<'
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,127): error C2143: syntax error: missing ';' before '{'
+C:\C++\Module06\Generiques_Et_Operateurs\liste_methodes.h(22,127): error C2447: '{': missing function header (old-style formal list?)
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(10,24): error C2100: illegal indirection
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(12,4): error C2065: 'pile': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(14,25): error C2065: 'pile': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(15,18): error C2065: 'pile': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(16,18): error C2065: 'pile': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(18,4): error C2065: 'pile': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(24,12): error C2065: 'pile': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(34,30): error C2100: illegal indirection
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(35,18): error C3861: 'evaluationPriorite': identifier not found
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(37,4): error C2065: 'pilePostfixe': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(39,20): error C2065: 'pilePostfixe': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(40,24): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(41,5): error C2065: 'pilePostfixe': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(41,26): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(42,5): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(45,24): error C2065: 'pilePostfixe': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(46,4): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(48,53): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(49,4): error C2065: 'pilePostfixe': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(49,25): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(50,4): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(51,4): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(53,53): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(54,4): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(57,10): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(58,3): error C2065: 'pilePostfixe': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(58,24): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(59,3): error C2065: 'pileStach': undeclared identifier
+C:\C++\Module06\Generiques_Et_Operateurs\pile_methodes.cpp(61,9): error C2065: 'pilePostfixe': undeclared identifier
+  Generating Code...

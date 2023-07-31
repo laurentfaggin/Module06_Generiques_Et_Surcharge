@@ -84,3 +84,6 @@ int evaluationPriorite(char p_char) {
 	}
 	return priorite;
 }
+
+
+

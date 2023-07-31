@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <sstream>
-
+#include "liste_methodes.h"
 #include "collection.h"
 
 
@@ -132,6 +132,7 @@ public:
 	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste);
 	template <class TypeElement> friend bool operator== (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
 	template <class TypeElement> friend bool operator!= (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
+	template <class TypeElement> friend Liste<TypeElement>* filtrer(Liste<TypeElement>* p_liste, int p_tailleP_liste, bool(p_predicat)(TypeElement));
 
 private:
 	int m_nombreDElements;

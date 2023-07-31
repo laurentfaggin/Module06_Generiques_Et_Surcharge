@@ -135,6 +135,7 @@
     <ClInclude Include="file.h" />
     <ClInclude Include="file_operateurs.h" />
     <ClInclude Include="liste.h" />
+    <ClInclude Include="liste_methodes.h" />
     <ClInclude Include="pile_methodes.h" />
     <ClInclude Include="operateur.h" />
     <ClInclude Include="pile.h" />

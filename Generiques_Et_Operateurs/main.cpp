@@ -7,16 +7,22 @@
 #include "pile.h"
 #include "pile_operateurs.h"
 #include "pile_methodes.h"
+#include "liste_methodes.h"
 
 void liste();
 void pileChar();
 void file();
 void pilePostfixe();
+void recherche();
 
 int main()
 {
+    std::cout << "**********************   RECHERCHE   *******************" << std::endl;
+    recherche();
+
     //std::cout << "********************   LISTE   *********************" << std::endl;
-    //liste();
+    //liste(); 
+     
 
    std::cout << "********************   PILE   *********************" << std::endl;
     pileChar();
@@ -174,5 +180,13 @@ void heritage() {
     c.ajouterFin(5);
     c.ajouterFin(6);
     //liste.afficher();
+}
 
+void recherche() {
+    Liste<int> tableauATrier;
+    for (int i = 1; i <= 10; ++i) {
+        tableauATrier.ajouterFin(i);
+    }
+    int taille = tableauATrier.nombreDElement();
+    Liste<int>* resultat = tableauATrier.filtrer(tableauATrier, taille, [](int v) { return v % 2 == 0; });
 }
