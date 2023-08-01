@@ -36,21 +36,21 @@ Pile<char>infixeConvertiEnPostfixe(std::string p_stringInfixe) {
 		if(c == '(' || priorite == 0) {
 			pilePostfixe.empiler(c);
 		}
-		if (c == ')' && !pilePostfixe.estPileVide()) {
-			while (c != '(' || !pileStach.estPileVide()) {
+		else if (c == ')' && !pilePostfixe.estPileVide()) {
+			while (c != '(' && !pileStach.estPileVide()) {
 				pilePostfixe.empiler(pileStach.sommet());
 				pileStach.depiler();
 			}
 		}
-		if (priorite > 0 && !pilePostfixe.estPileVide()) {
+		else if (priorite > 0 && !pilePostfixe.estPileVide()) {
 			pileStach.empiler(c);
 		}
-		if (priorite > 0 && priorite < evaluationPriorite(pileStach.sommet())) {
+		else if (priorite > 0 && priorite < evaluationPriorite(pileStach.sommet())) {
 			pilePostfixe.empiler(pileStach.sommet());
 			pileStach.depiler();
 			pileStach.empiler(c);
 		}
-		if (priorite > 0 && priorite > evaluationPriorite(pileStach.sommet())) {
+		else {
 			pileStach.empiler(c);
 		}
 	}

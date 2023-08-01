@@ -122,6 +122,26 @@ public:
 		return affiche.str();
 	};
 
+	void filtrer_rec(bool(*p_predicat)(TypeElement), const TypeElement* p_tableauAFiltrer, int p_tailleTableauAFiltrer, TypeElement* p_tableauFiltre, int& p_tailleTableauFiltre) {
+		if (p_tailleTableauAFiltrer == 0) {
+			return; 
+		}
+		filtrer_rec(p_predicat, p_tableauAFiltrer, p_tailleTableauAFiltrer - 1, p_tableauFiltre, p_tailleTableauFiltre);
+		if (p_predicat(p_tableauAFiltrer[p_tailleTableauAFiltrer - 1])) {
+			p_tableauFiltre[p_tailleTableauFiltre] = p_tableauAFiltrer[p_tailleTableauAFiltrer - 1];
+			++p_tailleTableauFiltre;
+		}
+		//return p_tableauFiltre;
+	}
+
+
+	Liste<TypeElement>* filtrer(int p_tailleTableauAFiltrer, bool(p_predicat)(TypeElement)) {
+		Liste<TypeElement>* p_tableauFiltre = new Liste<TypeElement>[p_tailleTableauAFiltrer];
+		int p_tailleTableauFiltre = 0;
+		filtrer_rec(p_predicat, this->m_liste, this->nombreDElement(), p_tableauFiltre->m_liste, p_tailleTableauFiltre);
+		p_tableauFiltre->m_nombreDElements = p_tailleTableauFiltre;
+		return p_tableauFiltre;
+	}
 
 
 	template <class TypeElement> friend Liste<TypeElement> operator+ (const Liste<TypeElement>& p_liste, TypeElement p_element);
@@ -132,7 +152,7 @@ public:
 	template <class TypeElement> friend std::ostream& operator<<(std::ostream& stream, const Liste<TypeElement>& p_liste);
 	template <class TypeElement> friend bool operator== (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
 	template <class TypeElement> friend bool operator!= (const Liste<TypeElement>& p_liste1, const Liste<TypeElement>& p_liste2);
-	template <class TypeElement> friend Liste<TypeElement>* filtrer(Liste<TypeElement>* p_liste, int p_tailleP_liste, bool(p_predicat)(TypeElement));
+	//template <class TypeElement> friend Liste<TypeElement>* filtrer(Liste<TypeElement>* p_liste, int p_tailleP_liste, bool(p_predicat)(TypeElement));
 
 private:
 	int m_nombreDElements;

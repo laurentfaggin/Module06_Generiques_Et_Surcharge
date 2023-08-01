@@ -44,7 +44,6 @@ public:
 	};
 
 	TypeElement depiler() {
-		int valeur = this->m_liste.obtenir(this->m_nombreDElements-1);
 		if (this->m_liste.nombreDElement() > 0) {
 			--this->m_nombreDElements;
 			this->m_liste.supprimer(this->m_nombreDElements - 1);
@@ -52,8 +51,6 @@ public:
 		else {
 			throw std::invalid_argument("La liste est vide");
 		}
-		return valeur;
-
 	};
 
 	TypeElement sommet() {
@@ -70,7 +67,7 @@ public:
 
 	std::string pileToString() {
 		std::stringstream string;
-		for (int i = 0; i < this->taille()-1; ++i) {
+		for (int i = 0; i < this->taille(); ++i) {
 			string << this->m_liste.obtenir(i);
 		}
 		return string.str();

@@ -18,24 +18,24 @@ void recherche();
 int main()
 {
     std::cout << "**********************   RECHERCHE   *******************" << std::endl;
-    recherche();
+    //recherche();
 
     //std::cout << "********************   LISTE   *********************" << std::endl;
     //liste(); 
      
 
    std::cout << "********************   PILE   *********************" << std::endl;
-    pileChar();
+    //pileChar();
 
     std::cout << "*******************   POSTFIXE   *****************" << std::endl;
-    //pilePostfixe();
+    pilePostfixe();
 
     //std::cout << "********************   FILE   *********************" << std::endl;
-    file();
+    //file();
 }
 void pilePostfixe() {
     std::string infixe = "(1+2)*3-4*5";
-    //Pile<char>postfixe(infixe.length());
+    Pile<char>postfixe(infixe.length());
     Pile<char>postfixe2(infixeConvertiEnPostfixe(infixe));
     std::cout << "postfixe: " << postfixe2 << std::endl;
 }
@@ -188,5 +188,7 @@ void recherche() {
         tableauATrier.ajouterFin(i);
     }
     int taille = tableauATrier.nombreDElement();
-    Liste<int>* resultat = tableauATrier.filtrer(tableauATrier, taille, [](int v) { return v % 2 == 0; });
+    Liste<int>* resultat = tableauATrier.filtrer( taille, [](int v) { return v % 2 == 0; });
+    std::cout << "liste filtree: " << std::endl;
+    std::cout<<resultat->toString() << std::endl;
 }
