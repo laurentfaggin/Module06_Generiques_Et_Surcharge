@@ -1,7 +1,4 @@
 ﻿  main.cpp
 C:\C++\Module06\Generiques_Et_Operateurs\main.cpp(38,39): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-  pile_methodes.cpp
-  Generating Code...
-C:\C++\Module06\Generiques_Et_Operateurs\pile.h(54): warning C4715: 'Pile<char>::depiler': not all control paths return a value
 C:\C++\Module06\Generiques_Et_Operateurs\pile.h(54): warning C4715: 'Pile<int>::depiler': not all control paths return a value
   Generiques_Et_Operateurs.vcxproj -> C:\C++\Module06\x64\Debug\Generiques_Et_Operateurs.exe

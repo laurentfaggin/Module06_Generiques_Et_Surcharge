@@ -21,14 +21,14 @@ int main()
     //recherche();
 
     //std::cout << "********************   LISTE   *********************" << std::endl;
-    //liste(); 
+    liste(); 
      
 
    std::cout << "********************   PILE   *********************" << std::endl;
     //pileChar();
 
     std::cout << "*******************   POSTFIXE   *****************" << std::endl;
-    pilePostfixe();
+    //pilePostfixe();
 
     //std::cout << "********************   FILE   *********************" << std::endl;
     //file();
@@ -112,7 +112,11 @@ void liste() {
         liste.ajouterFin(i);
     }
     std::cout << "liste de depart: " << std::endl;
-    std::cout << liste.toString();
+    std::cout << liste.toString() << std::endl;
+    Liste<int>listeCopiee(liste);
+    std::cout << "liste copiee: " << std::endl;
+    std::cout << liste.toString()<<std::endl;
+
     Liste<int> listeTest = liste + 6;
     listeTest + 7;
     std::cout << "operateur + avec liste + 5 et liste + 6: " << std::endl;
