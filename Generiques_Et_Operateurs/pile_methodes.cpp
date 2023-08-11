@@ -30,53 +30,69 @@ bool caracteresCorrectementImbriques(std::string p_string) {
 Pile<char>infixeConvertiEnPostfixe(std::string p_stringInfixe) {
 	Pile<char>pilePostfixe;
 	Pile<char>pileStach;
-
+	bool parenthese = false;
+	std::cout << p_stringInfixe << std::endl;
 	for (char c : p_stringInfixe) {
 		int priorite = evaluationPriorite(c);
-		if(c == '(' || priorite == 0) {
-			pilePostfixe.empiler(c);
-		}
-		else if (c == ')' && !pilePostfixe.estPileVide()) {
-			while (c != '(' && !pileStach.estPileVide()) {
+		switch (priorite) {
+		case 0:
+			if (c == '(') {
+				pileStach.empiler(c);
+			}
+			else if (c!=')') {
+				pilePostfixe.empiler(c);
+			}
+			else if (c == ')' && !pileStach.estPileVide()) {
+				while (pileStach.sommet() != '(') {
+					pilePostfixe.empiler(pileStach.sommet());
+					std::cout << "pilestach.sommet: " << pileStach.sommet()<<std::endl;
+					pileStach.depiler();
+				}
+				pileStach.depiler();
+			}
+			break;
+		
+		case 1:
+			if (evaluationPriorite(pileStach.sommet()) >= priorite) {
 				pilePostfixe.empiler(pileStach.sommet());
 				pileStach.depiler();
 			}
-		}
-		else if (priorite > 0 && !pilePostfixe.estPileVide()) {
 			pileStach.empiler(c);
-		}
-		else if (priorite > 0 && priorite < evaluationPriorite(pileStach.sommet())) {
-			pilePostfixe.empiler(pileStach.sommet());
-			pileStach.depiler();
+			
+			break;
+		
+		case 2:
+			if (evaluationPriorite(pileStach.sommet()) < priorite && !pileStach.estPileVide()) {
+				pilePostfixe.empiler(pileStach.sommet());
+				pileStach.depiler();
+			}
 			pileStach.empiler(c);
+			break;
+
+		default:
+			break;
 		}
-		else {
-			pileStach.empiler(c);
-		}
+		std::cout<<"pilePostFixe: " << pilePostfixe.pileToString() << " " << std::endl;
+		std::cout<<"pileStach: " << pileStach.pileToString() << " " << std::endl;
 	}
 	while (!pileStach.estPileVide()) {
+	
 		pilePostfixe.empiler(pileStach.sommet());
 		pileStach.depiler();
 	}
 	return pilePostfixe;
 }
 
-
-
 int evaluationPriorite(char p_char) {
 	int priorite = 0;
 	switch (p_char) {
 	case '-':
+	case '+':
 		priorite = 1;
 		break;
-	case '+':
-		priorite = 2;
-		break;
 	case '/':
-		priorite = 3;
-		break;
 	case '*':
-		priorite = 4;
+		priorite = 2;
 		break;
 	default:
 		priorite = 0;

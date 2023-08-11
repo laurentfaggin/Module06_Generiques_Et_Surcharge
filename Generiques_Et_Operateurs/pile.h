@@ -46,7 +46,7 @@ public:
 	TypeElement depiler() {
 		if (this->m_liste.nombreDElement() > 0) {
 			--this->m_nombreDElements;
-			this->m_liste.supprimer(this->m_nombreDElements - 1);
+			this->m_liste.supprimer(this->m_nombreDElements);
 		}
 		else {
 			throw std::invalid_argument("La liste est vide");

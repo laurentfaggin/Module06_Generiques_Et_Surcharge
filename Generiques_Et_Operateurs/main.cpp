@@ -21,23 +21,25 @@ int main()
     //recherche();
 
     //std::cout << "********************   LISTE   *********************" << std::endl;
-    liste(); 
+    //liste(); 
      
 
    std::cout << "********************   PILE   *********************" << std::endl;
     //pileChar();
 
     std::cout << "*******************   POSTFIXE   *****************" << std::endl;
-    //pilePostfixe();
+    pilePostfixe();
 
     //std::cout << "********************   FILE   *********************" << std::endl;
     //file();
 }
 void pilePostfixe() {
-    std::string infixe = "(1+2)*3-4*5";
+    std::string infixe = "1*8-5+3/7*8";
     Pile<char>postfixe(infixe.length());
     Pile<char>postfixe2(infixeConvertiEnPostfixe(infixe));
     std::cout << "postfixe: " << postfixe2 << std::endl;
+    postfixe2.depiler();
+    //std::cout << "depiler: " << postfixe2 << std::endl;
 }
 
 void pileChar() {
